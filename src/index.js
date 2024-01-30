@@ -39,6 +39,8 @@ function citiesTimezone(event) {
   timezoneList.innerHTML = timezoneListHtml;
 
   citiesTimezoneActive = true;
+  let citiesButton = document.querySelector(".cta");
+  citiesButton.innerHTML = ``;
 }
 function activateCities() {
   
