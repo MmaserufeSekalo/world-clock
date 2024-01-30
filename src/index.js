@@ -1,6 +1,14 @@
-function citiesTimezone() {
+let citiesTimezoneActive = false;
+
+function citiesTimezone(event) {
+  if (citiesTimezoneActive) {
+    return; // Do not run if citiesTimezone is already active
+  }
+
+  citiesTimezoneActive = true;
+
   let cities = {
-    Johannesburg: "Africa/Johannesburg",
+    Sydney: "Australia/Sydney",
     London: "Europe/London",
     Dubai: "Asia/Dubai",
   };
@@ -18,7 +26,7 @@ function citiesTimezone() {
           <p class="city">${timezoneEntry[0]}</p>
           <p class="date">${moment()
             .tz(timezoneEntry[1])
-            .format("MMMM Do YYYY")} </p>
+            .format("MMMM Do")} </p>
         </div>
         <div>
           <span class="time">${moment()
@@ -29,6 +37,35 @@ function citiesTimezone() {
   });
 
   timezoneList.innerHTML = timezoneListHtml;
+
+  citiesTimezoneActive = true;
 }
+
+function singleCity(event) {
+  let newTimezoneName = event.target.value;
+  let oneLocation = newTimezoneName.replace("_", "").split("/")[1];
+  let singleTimezone = document.querySelector("#timezone-list");
+  let newTimezone = moment().tz(newTimezoneName)
+
+  if(newTimezone ==="current"){
+newTimezone= moment().tz.guess()
+  }
+
+  singleTimezone.innerHTML = `<li>
+        <div class="city-date">
+        <p class= "timezone-offset">Today, <span>
+        ${newTimezone.format("Z")}</span></p>
+          <p class="city">${oneLocation}</p>
+          <p class="date">${newTimezone.format("MMMM Do")} </p>
+        </div>
+        <div>
+          <span class="time">${newTimezone
+            .format("HH:mm:ss")}</span>
+        </div>
+      </li>`;
+}
+
+let selectedCity = document.querySelector("#cities");
+selectedCity.addEventListener("change", singleCity);
 
 setInterval(citiesTimezone, 1000);
