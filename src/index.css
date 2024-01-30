@@ -63,4 +63,11 @@ ul li:last-child {
   margin-bottom: 2px;
   padding: 0px;
   opacity: 0.4;
+  font-family: Arial, Helvetica, sans-serif;
+}
+footer{
+  text-align: center;
+  color: black;
+  font-family: monospace;
+  font-size: 12px;
 }
