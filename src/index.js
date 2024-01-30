@@ -40,15 +40,17 @@ function citiesTimezone(event) {
 
   citiesTimezoneActive = true;
 }
-
+function activateCities() {
+  
+}
 function singleCity(event) {
   let newTimezoneName = event.target.value;
   let oneLocation = newTimezoneName.replace("_", "").split("/")[1];
   let singleTimezone = document.querySelector("#timezone-list");
-  let newTimezone = moment().tz(newTimezoneName)
+  let newTimezone = moment().tz(newTimezoneName);
 
-  if(newTimezone ==="current"){
-newTimezone= moment().tz.guess()
+  if (newTimezone === "current") {
+    newTimezone = moment().tz.guess();
   }
 
   singleTimezone.innerHTML = `<li>
@@ -59,11 +61,32 @@ newTimezone= moment().tz.guess()
           <p class="date">${newTimezone.format("MMMM Do")} </p>
         </div>
         <div>
-          <span class="time">${newTimezone
-            .format("HH:mm:ss")}</span>
+          <span class="time">${newTimezone.format("HH:mm:ss")}</span>
         </div>
       </li>`;
+  
+let citiesButton = document.querySelector(".cta");
+citiesButton.innerHTML = `<button class="all-cities">All cities </button>`;
+
+
+  
 }
+
+
+// all the button things
+ function showAllCities(event){
+ event.preventDefault()
+  citiesTimezoneActive = false;
+ 
+ 
+ }
+ 
+let citiesButton = document.querySelector(".cta");
+citiesButton.addEventListener("click", showAllCities)
+
+
+
+
 
 let selectedCity = document.querySelector("#cities");
 selectedCity.addEventListener("change", singleCity);

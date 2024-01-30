@@ -1,7 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;700&family=Roboto:wght@300&display=swap");
-body {
-  color: rgb(219, 217, 217);
-}
+
 .wrapper {
   max-width: 650px;
   margin: 30px auto;
@@ -9,12 +7,13 @@ body {
   border: 2px solid black;
   border-radius: 4px;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
-  padding: 10px 20px;
+  padding: 10px 25px 10px 0;
+    color: rgb(219, 217, 217);
 }
 select {
   display: block;
   margin: 10px auto;
-  width: 90%;
+  width: 60%;
   text-align: center;
   padding: 5px 10px;
   font-family: "Inter", sans-serif;
@@ -24,6 +23,12 @@ select {
   border: 1px solid rgb(219, 217, 217);
   cursor: pointer;
   color: rgb(219, 217, 217);
+}
+.selectors{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  place-content: center;
 }
 h2 {
   font-family: Arial, Helvetica, sans-serif;
@@ -37,6 +42,11 @@ ul li {
   align-items: center;
   margin: 5px 10px;
   border-bottom: 1px solid rgb(143, 141, 141);
+  transition: all 1s ease-in-out;
+}
+ul{
+  list-style: none;
+  margin-left: 0;
 }
 ul li:last-child {
   border-bottom: none;
@@ -65,6 +75,18 @@ ul li:last-child {
   padding: 0px;
   opacity: 0.4;
   font-family: Arial, Helvetica, sans-serif;
+}
+.all-cities{
+  padding: 6px 30px;
+  border: 1px solid rgb(219, 217, 217);
+  border-radius: 10px;
+  font-size: 12px;
+  color: rgb(219, 217, 217);
+  background: none;
+ 
+}
+.show-button{
+  display: block;
 }
 footer{
   text-align: center;
